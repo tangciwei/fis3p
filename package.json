@@ -1,0 +1,27 @@
+{
+  "name": "fis3p",
+  "version": "0.0.0",
+  "description": "fis3组合套餐",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fis3",
+    "browser-sync",
+    "fis3p"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tangciwei/fis3p.git"
+  },
+  "bin": {
+    "fis3p": "fis3p"
+  },
+  "author": "tangciwei",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "commander": "^2.9.0"
+  }
+}

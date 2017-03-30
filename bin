@@ -1,0 +1,5 @@
+#!/usr/bin/env node --harmony
+const FS = require('fs');
+const PROGRAM = require('commander');
+console.log(process.argv)
+console.log(__dirname)
