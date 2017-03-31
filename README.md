@@ -11,7 +11,7 @@ npm install -g  fis3p
 ## 2. 使用
 
 - 进入项目目录输入：`fis3p`, 将调用`fis3 release debug -wc`
-
+- 获取本地ip: `fis3p ip`
 - [可选参数]: 输入`fis3p rd`，将调用`fis3 release rd -wc`
 
 ## 3. 功能说明

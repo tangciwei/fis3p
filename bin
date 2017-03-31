@@ -11,15 +11,21 @@ preBuild="${preDir}/${dirName}-build"
 # 本机ip
 # osascript -e "IPv4 address of (system info)"  (mac系统)
 ipStr=`ifconfig en0 |grep "inet " |awk '{print $2}'`
-openUrl=http://${ipStr}:3000
+
+# 获取ip地址
+if [ $environ = 'ip' ]
+then
+  echo $ipStr
+  exit 0
+fi
 
 # 如果构建目录不存在就创建一个
 if [ ! -d "$preBuild" ]; then
   mkdir $preBuild
 fi
 rm -rf ${preBuild}/*
-
 fis3 server start --type smarty --no-browse --root $preBuild
-open $openUrl
-nohup browser-sync start --proxy "${ipStr}:8080" --no-open --files * --reload-delay 1000 &
+
+nohup browser-sync start --proxy "${ipStr}:8080"  --files * --reload-delay 1000 &
+
 fis3 release ${environ:-debug} -wc
