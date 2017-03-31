@@ -1,6 +1,6 @@
 {
   "name": "fis3p",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "fis3组合套餐",
   "main": "index.js",
   "scripts": {
