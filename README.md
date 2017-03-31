@@ -1,18 +1,26 @@
 # fis3p
 
-> **there is nothing~**
+## 1. 安装
+```
+npm install -g  browser-sync
+npm install -g  fis3-server-smarty
+npm install -g  fis3p
 
-## TODO
+```
 
-1. fis3一系列命令组合
-2. 集成browser-sync，增加热更新功能
+## 2. 使用
 
-## 目标
+- 在项目目录输入
+`fis3p`
+- 参数
+fis3 media选项名字，例如 `fis3p rd`，将调用`fis3 release rd -wc`
 
-命令行输入`fis3p`
+## 3. 功能说明
 
-- 在源文件父级创建build文件夹，fis3编译后的内容将放到这。
-- 实时监听
-- 热更新效果
-- 多端同步效果
+>一些列命令集合
+
+1. 在源文件父级创建build文件夹，fis3编译后的内容将放到这。
+2. 调用`fis3 release debug -wc`
+3. 后台调用browser-sync，实现热加载和多端同步功能.
+`browser-sync start --proxy "127.0.0.1:8080" --files * --reload-delay 1000`
 
