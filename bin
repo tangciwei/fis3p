@@ -7,7 +7,7 @@ dirName=`basename $dir`
 # 上一级目录地址
 preDir=${PWD%/*}
 # 上一级构建目录地址
-preBuild="${preDir}/${dirName}-build"
+preBuild="${preDir}/${dirName}-BUILD"
 # 本机ip
 # osascript -e "IPv4 address of (system info)"  (mac系统)
 ipStr=`ifconfig en0 |grep "inet " |awk '{print $2}'`
