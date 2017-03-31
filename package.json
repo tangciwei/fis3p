@@ -1,6 +1,6 @@
 {
   "name": "fis3p",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "fis3组合套餐",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "git@github.com:tangciwei/fis3p.git"
   },
   "bin": {
-    "fis3p": "fis3p"
+    "fis3p": "bin"
   },
   "author": "tangciwei",
   "license": "ISC",
