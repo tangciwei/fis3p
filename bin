@@ -1,5 +1,20 @@
-#!/usr/bin/env node --harmony
-const FS = require('fs');
-const PROGRAM = require('commander');
-console.log(process.argv)
-console.log(__dirname)
+#!/bin/bash
+environ=$1
+# 当前目录地址
+dir=`pwd`
+# 目录名
+dirName=`basename $dir`
+# 上一级目录地址
+preDir=${PWD%/*}
+# 上一级构建目录地址
+preBuild="${preDir}/${dirName}-build"
+# 如果构建目录不存在就创建一个
+if [ ! -d "$preBuild" ]; then
+  mkdir $preBuild
+fi
+rm -rf ${preBuild}/*
+
+fis3 server start --type smarty --no-browse --root $preBuild
+nohup browser-sync start --proxy "127.0.0.1:8080" --files * --reload-delay 1000 &
+
+fis3 release ${environ:-debug} -wc
