@@ -8,6 +8,11 @@ dirName=`basename $dir`
 preDir=${PWD%/*}
 # 上一级构建目录地址
 preBuild="${preDir}/${dirName}-build"
+# 本机ip
+# osascript -e "IPv4 address of (system info)"  (mac系统)
+ipStr=`ifconfig en0 |grep "inet " |awk '{print $2}'`
+openUrl=http://${ipStr}:3000
+
 # 如果构建目录不存在就创建一个
 if [ ! -d "$preBuild" ]; then
   mkdir $preBuild
@@ -15,6 +20,6 @@ fi
 rm -rf ${preBuild}/*
 
 fis3 server start --type smarty --no-browse --root $preBuild
-nohup browser-sync start --proxy "127.0.0.1:8080" --files * --reload-delay 1000 &
-
+open $openUrl
+nohup browser-sync start --proxy "${ipStr}:8080" --no-open --files * --reload-delay 1000 &
 fis3 release ${environ:-debug} -wc
